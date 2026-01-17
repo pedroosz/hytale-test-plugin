@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "HytaleServer",
+            "request": "launch",
+            "mainClass": "com.hypixel.hytale.Main",
+            "classPaths": [
+                "/Users/gio/Library/Application Support/Hytale/install/release/package/game/latest/Server/HytaleServer.jar",
+                "${workspaceFolder}/build/classes/java/main",
+                "${workspaceFolder}/build/resources/main"
+            ],
+            "args": "--allow-op --disable-sentry --assets=\"/Users/gio/Library/Application Support/Hytale/install/release/package/game/latest/Assets.zip\" --mods=\"${workspaceFolder}\"",
+            "cwd": "${workspaceFolder}/run"
+        }
+    ]
+}
