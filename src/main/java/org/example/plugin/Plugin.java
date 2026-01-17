@@ -10,6 +10,9 @@ import org.example.plugin.coins.commands.AddCommand;
 import org.example.plugin.coins.commands.CoinsCommand;
 import org.example.plugin.coins.commands.TransferCommand;
 import org.example.plugin.coins.persistence.BalanceRepository;
+import org.example.plugin.coins.persistence.SqliteBalanceRepository;
+import org.example.plugin.coins.persistence.SqliteDatabase;
+import org.example.plugin.coins.persistence.SqliteTransactionRepository;
 import org.example.plugin.coins.persistence.TransactionRepository;
 
 import javax.annotation.Nonnull;
@@ -17,6 +20,7 @@ import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 
 /**
  * This class serves as the entrypoint for your plugin. Use the setup method to register into game registries or add
@@ -43,15 +47,17 @@ public class Plugin extends JavaPlugin {
             LOGGER.atSevere().withCause(e).log("Failed to create plugin data directory at " + dataDir);
         }
 
-        BalanceRepository balanceRepository = new BalanceRepository(dataDir);
+        SqliteDatabase db = new SqliteDatabase(dataDir.resolve("coins.db"));
         try {
-            balanceRepository.load();
+            db.initSchema();
         }
-        catch (IOException e) {
-            LOGGER.atSevere().withCause(e).log("Failed to load balances");
+        catch (SQLException e) {
+            LOGGER.atSevere().withCause(e).log("Failed to initialize SQLite schema");
+            return;
         }
 
-        TransactionRepository transactionRepository = new TransactionRepository(dataDir);
+        BalanceRepository balanceRepository = new SqliteBalanceRepository(db);
+        TransactionRepository transactionRepository = new SqliteTransactionRepository(db);
         SimpleEventBus eventBus = new SimpleEventBus();
         CoinPluginModule module = new CoinPluginModule(LOGGER, eventBus, balanceRepository, transactionRepository);
 

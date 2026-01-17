@@ -7,11 +7,9 @@
             "request": "launch",
             "mainClass": "com.hypixel.hytale.Main",
             "classPaths": [
-                "/Users/gio/Library/Application Support/Hytale/install/release/package/game/latest/Server/HytaleServer.jar",
-                "${workspaceFolder}/build/classes/java/main",
-                "${workspaceFolder}/build/resources/main"
+                "/Users/gio/Library/Application Support/Hytale/install/release/package/game/latest/Server/HytaleServer.jar"
             ],
-            "args": "--allow-op --disable-sentry --assets=\"/Users/gio/Library/Application Support/Hytale/install/release/package/game/latest/Assets.zip\" --mods=\"${workspaceFolder}\"",
+            "args": "--allow-op --disable-sentry --assets=\"/Users/gio/Library/Application Support/Hytale/install/release/package/game/latest/Assets.zip\"",
             "cwd": "${workspaceFolder}/run"
         }
     ]

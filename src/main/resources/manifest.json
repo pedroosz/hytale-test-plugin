@@ -17,6 +17,6 @@
         
     },
     "DisabledByDefault": false,
-    "Main": "org.giomartinsdev.hycoins.plugin.Plugin",
+    "Main": "org.example.plugin.Plugin",
     "IncludesAssetPack": true
 }
