@@ -1,14 +1,14 @@
 {
-    "Group": "Example",
-    "Name": "ExamplePlugin",
+    "Group": "giomartinsdev",
+    "Name": "HyCoins",
     "Version": "0.0.2",
-    "Description": "An example plugin for HyTale!",
+    "Description": "A simple coins plugin for HyTale!",
     "Authors": [
         {
-            "Name": "It's you!"
+            "Name": "GioMartinsDev"
         }
     ],
-    "Website": "example.org",
+    "Website": "https://github.com/GioMartinsDev",
     "ServerVersion": "*",
     "Dependencies": {
         
@@ -17,6 +17,6 @@
         
     },
     "DisabledByDefault": false,
-    "Main": "org.example.plugin.ExamplePlugin",
+    "Main": "org.example.plugin.Plugin",
     "IncludesAssetPack": true
 }
